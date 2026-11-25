@@ -1,6 +1,6 @@
 import ExpenseItem from './ExpenseItem'
 
-export default function ExpenseList({ expenses }) {
+export default function ExpenseList({ expenses, onDelete }) {
   if (expenses.length === 0) {
     return <p className="empty">No expenses yet. Add your first one above.</p>
   }
@@ -8,7 +8,7 @@ export default function ExpenseList({ expenses }) {
   return (
     <ul className="expense-list">
       {expenses.map((expense) => (
-        <ExpenseItem key={expense.id} expense={expense} />
+        <ExpenseItem key={expense.id} expense={expense} onDelete={onDelete} />
       ))}
     </ul>
   )
