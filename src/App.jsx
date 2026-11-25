@@ -13,8 +13,14 @@ export default function App() {
   return (
     <main>
       <h1>Expense Tracker</h1>
-      <ExpenseForm onAdd={handleAdd} />
-      <ExpenseList expenses={expenses} />
+      <section className="card">
+        <h2>New expense</h2>
+        <ExpenseForm onAdd={handleAdd} />
+      </section>
+      <section className="card">
+        <h2>Your expenses</h2>
+        <ExpenseList expenses={expenses} />
+      </section>
     </main>
   )
 }
