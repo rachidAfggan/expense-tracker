@@ -10,6 +10,10 @@ export default function App() {
     setExpenses([newExpense, ...expenses])
   }
 
+  function handleDelete(id) {
+    setExpenses(expenses.filter((expense) => expense.id !== id))
+  }
+
   return (
     <main>
       <h1>Expense Tracker</h1>
@@ -19,7 +23,7 @@ export default function App() {
       </section>
       <section className="card">
         <h2>Your expenses</h2>
-        <ExpenseList expenses={expenses} />
+        <ExpenseList expenses={expenses} onDelete={handleDelete} />
       </section>
     </main>
   )
