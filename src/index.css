@@ -133,3 +133,23 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.delete-btn {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+  background: #fee2e2;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
