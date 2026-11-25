@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import ExpenseForm from './components/ExpenseForm'
 
 export default function App() {
+  const [expenses, setExpenses] = useState([])
+
   function handleAdd(expense) {
-    // Temporary: the list and state come in the next step
-    console.log('New expense:', expense)
+    const newExpense = { ...expense, id: crypto.randomUUID() }
+    setExpenses([newExpense, ...expenses])
   }
 
   return (
