@@ -2,7 +2,7 @@ import ExpenseItem from './ExpenseItem'
 
 export default function ExpenseList({ expenses }) {
   if (expenses.length === 0) {
-    return <p>No expenses yet. Add your first one above.</p>
+    return <p className="empty">No expenses yet. Add your first one above.</p>
   }
 
   return (
