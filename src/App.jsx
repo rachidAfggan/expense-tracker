@@ -14,6 +14,8 @@ export default function App() {
     setExpenses(expenses.filter((expense) => expense.id !== id))
   }
 
+  const total = expenses.reduce((sum, expense) => sum + expense.amount, 0)
+
   return (
     <main>
       <h1>Expense Tracker</h1>
@@ -24,6 +26,9 @@ export default function App() {
       <section className="card">
         <h2>Your expenses</h2>
         <ExpenseList expenses={expenses} onDelete={handleDelete} />
+        <p className="total">
+          Total: <strong>${total.toFixed(2)}</strong>
+        </p>
       </section>
     </main>
   )
