@@ -153,3 +153,16 @@ h1 {
 .delete-btn:hover {
   background: #fecaca;
 }
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--border);
+  font-size: 1.1rem;
+}
+
+.total strong {
+  color: var(--primary);
+}
