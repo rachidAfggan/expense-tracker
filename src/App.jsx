@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/ExpenseList'
 
@@ -15,6 +15,10 @@ function loadExpenses() {
 
 export default function App() {
   const [expenses, setExpenses] = useState(loadExpenses)
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses))
+  }, [expenses])
 
   function handleAdd(expense) {
     const newExpense = { ...expense, id: crypto.randomUUID() }
