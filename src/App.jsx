@@ -2,8 +2,19 @@ import { useState } from 'react'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/ExpenseList'
 
+const STORAGE_KEY = 'expenses'
+
+function loadExpenses() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    return saved ? JSON.parse(saved) : []
+  } catch {
+    return []
+  }
+}
+
 export default function App() {
-  const [expenses, setExpenses] = useState([])
+  const [expenses, setExpenses] = useState(loadExpenses)
 
   function handleAdd(expense) {
     const newExpense = { ...expense, id: crypto.randomUUID() }
