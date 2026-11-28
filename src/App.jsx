@@ -29,6 +29,12 @@ export default function App() {
     setExpenses(expenses.filter((expense) => expense.id !== id))
   }
 
+  function handleClearAll() {
+    if (window.confirm('Delete all expenses? This cannot be undone.')) {
+      setExpenses([])
+    }
+  }
+
   const total = expenses.reduce((sum, expense) => sum + expense.amount, 0)
 
   return (
@@ -41,6 +47,11 @@ export default function App() {
       <section className="card">
         <h2>Your expenses</h2>
         <ExpenseList expenses={expenses} onDelete={handleDelete} />
+        {expenses.length > 0 && (
+          <button className="clear-btn" onClick={handleClearAll}>
+            Clear all
+          </button>
+        )}
         <p className="total">
           Total: <strong>${total.toFixed(2)}</strong>
         </p>
